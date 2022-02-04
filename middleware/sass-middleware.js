@@ -1,11 +1,11 @@
 'use strict';
 
-var sass = require('node-sass'),
-    util = require('util'),
-    fs = require('fs'),
-    url = require('url'),
-    dirname = require('path').dirname,
-    join = require('path').join;
+const sass = require('node-sass');
+const util = require('util');
+const fs = require('fs');
+const url = require('url');
+const dirname = require('path').dirname;
+const join = require('path').join;
 
 var imports = {};
 
@@ -125,7 +125,7 @@ module.exports = function(options) {
       return next();
     }
 
-    var path = url.parse(req.url).pathname;
+    var path = new URL(req.url).pathname;
 
     if (!/\.css$/.test(path)) {
       log('debug', 'skip', path, 'nothing to do');
