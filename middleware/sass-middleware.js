@@ -125,7 +125,7 @@ module.exports = function(options) {
       return next();
     }
 
-    var path = new URL(req.url).pathname;
+    var path = req.url.pathname;
 
     if (!/\.css$/.test(path)) {
       log('debug', 'skip', path, 'nothing to do');
